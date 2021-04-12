@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Application</string>
+    <string name="dev_text_title">Lorem Ipsum</string>
+    <string name="dev_text_desc">Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500 lerden beri endüstri standardı sahte metinler olarak kullanılmıştır.</string>
+    <string name="dev_text_body">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500 lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960 larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</string>
+    <string name="dev_text_hour">4 hour ago</string>
+    <string name="dev_text_date">4 Nov 2020</string>
+
+    <string name="input_error_required_field">Zorunlu Alan</string>
+    <string name="registe_privacy_policy">Lütfen kullanım şartlarını onaylayınız</string>
+    <string name="input_error_password_no_match">Lütfen şifrenizi eşleştiriniz</string>
+    <string name="input_warning_password_retry">Lütfen oluşturduğunuz şifreyi tekrar giriniz.</string>
+    <string name="input_error_password_err">Şifreniz en az 6 karakter olmalı, harf ve rakam içermelidir</string>
+    <string name="input_warning_mail">Lütfen e-posta adresinizi giriniz</string>
+    <string name="input_error_mail">Lütfen e-posta adresinizi doğru giriniz</string>
+    <string name="input_warning_user_info">Lütfen kullanıcı adı giriniz</string>
+    <string name="input_error_user_info_empty">Kullanıcı adınızda boşluk bulunmamalıdır.Min 3 - Max 25 karakter sayısı olmalıdır</string>
+    <string name="input_error_user_info">Kullanıcı adınızda türkçe karakter ve (.), (_), (- ) karakterleri dışında özel karakter bulunmamalıdır.Min 3 - Max 25 karakter sayısı olmalıdır</string>
+</resources>

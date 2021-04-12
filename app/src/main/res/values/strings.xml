@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">VideoGamesApp</string>
+
+    <string name="home">Home</string>
+    <string name="favorites">Favorites</string>
+
+    <string name="lorem_ipsum">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500 lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960 larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.</string>
+    <string name="search_hint">Search Here</string>
+    <string name="no_data_found_hint">No Data Found</string>
+</resources>

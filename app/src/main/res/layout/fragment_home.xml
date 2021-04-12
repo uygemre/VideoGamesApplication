@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/material_8dp"
+        android:layout_marginTop="@dimen/material_8dp"
+        android:layout_marginEnd="@dimen/material_8dp"
+        android:alpha="0.4"
+        android:background="@drawable/shape_search_area"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/material_8dp">
+
+        <ImageView
+            android:layout_width="@dimen/material_16dp"
+            android:layout_height="@dimen/material_16dp"
+            android:layout_marginStart="@dimen/material_8dp"
+            app:srcCompat="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/material_8dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/search_hint"
+            android:textColor="@color/mine_shaft">
+
+        </EditText>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_no_data_found"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/material_12dp"
+        android:gravity="center"
+        android:text="@string/no_data_found_hint"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_page_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/material_8dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</LinearLayout>

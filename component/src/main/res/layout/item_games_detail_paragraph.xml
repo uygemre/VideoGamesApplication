@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/material_16dp"
+    android:layout_marginTop="@dimen/material_2dp"
+    android:layout_marginEnd="@dimen/material_16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_games_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="5dp"
+        android:text="Baskı, coşku, hücum sürekliliği... Taraftarın özlediği cinsten bir ilk yarı performansıydı. Atiba, ‘genç’ken Kopenhag’da ofansif orta saha oynadığı dönemdekini hatırlatan teknik beceri dolu bir golle perdeyi açtı. Atiba’nın oyunu göreceli olarak Kopenhag’daki sakatlıklardan çok çeken Atiba’nın oyunundan daha ‘genç’: Beşiktaş’ın yaşayan efsanesinin atletik performans seviyesi ve oyun zekâsı o kadar yüksek ki hangi sporu yapsa başarılı olur!"
+        android:textColor="@color/black"
+        android:textColorLink="@color/black"
+        android:textSize="@dimen/material_typography_body1" />
+
+</LinearLayout>

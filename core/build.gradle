@@ -1,0 +1,106 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        minSdkVersion versions.minSdk
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompat
+        targetCompatibility versions.targetCompat
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api deps.ktx
+    api deps.kotlin.stdlib
+    api deps.support.appCompat
+    api deps.support.recyclerView
+    api deps.support.cardView
+    api deps.support.support
+    api deps.support.designSupport
+
+    api deps.android.constraintLayout
+    api deps.android.lifecycleExt
+    api deps.android.lifecycleRx
+    api deps.android.lifecycleCommon
+    api deps.android.roomRuntime
+    api deps.android.roomRx
+    api deps.kotlin.kotlinAndroidExtensionsRuntime
+    api deps.android.lifecycleViewmodelKtx
+
+    api deps.pageindicatorview
+
+    api deps.reactivex.rxJava
+    api deps.reactivex.rxAndroid
+    api deps.reactivex.rxRelay
+    api deps.reactivex.rxKotlin
+    api deps.reactivex.rxBinding
+
+    api deps.google.dagger
+    api deps.google.daggerSupport
+
+    api deps.google.gson
+
+    api deps.support.multidex
+
+    api deps.kotlin.kotlinCoroutines
+
+    api deps.square.picasso
+    api deps.square.okhttpDownloader
+    api deps.square.retrofit
+    api deps.square.retrofitIntecepter
+    api deps.square.okhttp
+    api deps.square.gsonConverter
+    api deps.square.retrofitRxAdapter
+    api deps.square.timber
+    api deps.square.urlconnection
+    api deps.circleimageview
+    api deps.state.core
+
+    api deps.additional.jodaTime
+
+    api deps.twitter
+
+    api deps.rxkprefs
+
+    api deps.loopinglayout
+
+    androidTestImplementation deps.test.junit
+    androidTestImplementation deps.test.mockitoKotlin
+    androidTestImplementation deps.test.robolectric
+    androidTestImplementation deps.test.atslRunner
+    androidTestImplementation deps.test.espresso
+
+    androidTestImplementation deps.test.junit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+
+    kapt deps.android.roomCompiler
+    kapt deps.android.lifecycleCompiler
+    kapt deps.google.daggerProcessor
+    kapt deps.google.daggerAndroidProcessor
+    kapt deps.state.processor
+}
+

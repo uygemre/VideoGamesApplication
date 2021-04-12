@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':core')
+    implementation project(':data')
+
+    //Zoom RecyclerView
+    implementation 'com.github.Spikeysanju:ZoomRecylerLayout:1.0'
+
+    api('com.google.android.exoplayer:exoplayer-core:2.10.1')
+    api('com.google.android.exoplayer:exoplayer-ui:2.10.1')
+    api('com.google.android.exoplayer:exoplayer-hls:2.10.1')
+    api('com.google.android.exoplayer:exoplayer-dash:2.10.1')
+    api('com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.1')
+    api('com.google.android.exoplayer:extension-ima:2.9.0') { exclude group: "com.google.android.gms" }
+    api 'jp.wasabeef:glide-transformations:4.0.1'
+    implementation 'com.github.rubensousa:gravitysnaphelper:2.2.1'
+
+    kapt deps.google.daggerProcessor
+    kapt deps.google.daggerAndroidProcessor
+
+}

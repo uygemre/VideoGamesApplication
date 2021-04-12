@@ -1,0 +1,118 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+
+def buildVersionName = "4.0.0"
+def buildVersionCode = new Date().format("yyMMddHHmm", TimeZone.getTimeZone("Europe/Istanbul")).toInteger()
+def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+
+        applicationId "com.base.videogames"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 100
+        versionName buildVersionName
+        buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
+        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        release {
+            manifestPlaceholders = [crashlyticsEnabled: false]
+            minifyEnabled false
+        }
+
+        debug {
+            manifestPlaceholders = [crashlyticsEnabled: true]
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            debuggable true
+        }
+        ext.betaDistributionGroupAliases = "goaway_android_test"
+        ext.betaDistributionReleaseNotesFilePath = file("../change.log").absolutePath
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            applicationId 'com.base.videogames'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompat
+        targetCompatibility versions.targetCompat
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':data')
+    implementation project(':component')
+    implementation(deps.android.firebaseAnalytics)
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    api "com.google.android.gms:play-services-location:17.1.0"
+    api "com.google.android.gms:play-services-analytics:17.0.0"
+    implementation 'com.google.android.gms:play-services-tagmanager:17.0.0'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    kapt deps.android.roomCompiler
+    kapt deps.android.lifecycleCompiler
+    kapt deps.google.daggerProcessor
+    kapt deps.google.daggerAndroidProcessor
+    kapt deps.state.processor
+
+    //facebook,google login
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    //google
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+
+    // for local unit tests
+    testImplementation deps.test.junit
+    testImplementation deps.test.junitJupiter
+    testImplementation deps.test.atslRunner
+    testImplementation deps.test.atslRules
+    //testImplementation deps.test.androidxCore
+    testImplementation deps.test.robolectric
+    testImplementation deps.test.mockitoKotlin
+    testImplementation deps.test.mockWebServer
+    testImplementation "com.google.truth:truth:0.44"
+
+    // for instrumented tests
+    androidTestImplementation deps.test.espresso
+    androidTestImplementation deps.test.espressoIntents
+
+    implementation('com.netmera:netmera:3.6.8')
+    implementation 'com.google.android.ump:user-messaging-platform:1.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.0'
+
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+}
